@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.qrcode.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+<p>在网页上生成的二维码如下：</p>
+<div id="qrcode"></div>
+<script>
+    $(document).ready(function(){
+        $("#qrcode").qrcode("席超奇..........");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" onclick="imgToExcel()" value="导出图片到excel">
+</body>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/common2.js"></script>
+<script type="text/javascript" src="../js/json3.min.js"></script>
+
+<script type="text/javascript">
+
+    // $(document).ready(function () {
+    //     var data=window.localStorage.getItem("data");
+    //     console.log(data);
+    //     var data_json = eval('(' + data + ')');
+    //     var states = data_json.states;
+    //     var states_string = JSON.stringify(states);
+    //     console.log(states);
+    //     var states_arr = states_string.split("rect");
+    //     for(var i=0;i<states_arr.length;i++){
+    //         var str = "rect"+states_arr[i];
+    //         if(i>0){
+    //             if(i==states_arr.length-1){
+    //                 console.log(str.substring(0,str.length-3));
+    //             }else{
+    //                 console.log(str.substring(0,str.length-4));
+    //             }
+    //         }
+    //     }
+    // });
+    function imgToExcel() {
+        $.xcq.ajaxPost("/imgToExcel",null,true,function(){
+            console.log("111");
+        })
+    }
+</script>
+</html>

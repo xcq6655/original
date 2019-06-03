@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="info()">查看访问详细信息</button>
+<button onclick="makeQrcode()">生成二维码</button>
+<div id="qrcode"></div>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.qrcode.min.js"></script>
+<script src="js/common.js"></script>
+<script>
+    function info() {
+        var data = {
+            token : "abc"
+        }
+        $.xcq.ajaxGet("/line/getInfoByToken",data,false,function (data) {
+            console.log(data.details);
+            //alert(data.details);
+        })
+    }
+
+    function makeQrcode() {
+        $("#qrcode").qrcode({
+            render:"canvas",
+            width:200,
+            height:200,
+            correctLevel:0,
+            text:"http://2512786ex2.wicp.vip/line/scanListen?token=abc",
+            background:"#ffffff",
+            foreground:"black",
+            src:"/img/xcq.jpg"
+        });
+        // var data = {
+        //     token : "abc"
+        // }
+        // $.xcq.ajaxGet("/line/getInfoByToken",data,false,function (data) {
+        //     var dataStr = JSON.parse(data.details);
+        //     var lastDate = new Date(dataStr.last_time);
+        //     var lastDate2 = lastDate.toLocaleDateString().replace(/\//g, "-") + " " + lastDate.toTimeString().substr(0, 8);
+        //     console.log(data.details);
+        //     console.log(dataStr.name);
+        //     console.log("上次访问时间"+lastDate2);
+        //      $("#qrcode").qrcode(utf16to8("商品名称："+ dataStr.name));
+        // })
+    }
+
+    function utf16to8(str) {
+        var out, i, len, c;
+        out = "";
+        len = str.length;
+        for (i = 0; i < len; i++) {
+            c = str.charCodeAt(i);
+            if ((c >= 0x0001) && (c <= 0x007F)) {
+                out += str.charAt(i);
+            } else if (c > 0x07FF) {
+                out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+            } else {
+                out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+            }
+        }
+        return out;
+    }
+</script>
+</body>
+</html>
