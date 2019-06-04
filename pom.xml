@@ -29,7 +29,10 @@
             <version>2.0.0</version>
             <!--<version>1.1.1</version>-->
         </dependency>
-
+        <dependency>
+            <groupId>org.simpleframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -110,15 +113,20 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>3.16</version>
+            <version>3.8</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>3.16</version>
+            <version>3.8</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.3.0</version>
+        </dependency>
     </dependencies>
 
     <build>
